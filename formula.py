@@ -1,6 +1,8 @@
 import copy
 import gzip
 import os
+from pathlib import Path
+from pysat.solvers import Glucose3
 
 
 class CNF(object):
@@ -179,3 +181,12 @@ class FileObject(object):
     def __exit__(self, exc_type, exc_value, traceback):
         self.close()
 #
+
+
+if __name__ == '__main__':
+    filename = Path('./edusat/edusat/test/unsat/unsat.cnf')
+    my_CNF = CNF(from_file=filename)
+    print(my_CNF)
+    g = Glucose3(my_CNF)
+    print(g.solve())
+    print(g.get_model())

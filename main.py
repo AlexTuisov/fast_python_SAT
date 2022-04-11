@@ -1,24 +1,21 @@
-import numpy as np
-import time
-from numba import njit
+# import numpy as np
+# import time
+# from numba import njit
+import argparse
 
 
 def main():
     pass
 
-    # start = time.time()
-    # numpy_speed_check(2)
-    # numpy_speed_check(1000)
-    # end = time.time()
-    # print(f"Elapsed time: {end-start:.2f} seconds")
-
-
-# @njit(fastmath=True, parallel=True)
-# def numpy_speed_check(n):
-#     a = np.random.random((n, n, n))
-#     b = np.extract(a > 0.999, a)
-#     print(len(b))
-
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                        help='an integer for the accumulator')
+    parser.add_argument('--sum', dest='accumulate', action='store_const',
+                        const=sum, default=max,
+                        help='sum the integers (default: find the max)')
+    args = parser.parse_args()
+    print(args.accumulate(args.integers))
+
     main()
