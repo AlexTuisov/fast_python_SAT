@@ -20,7 +20,35 @@ class Clause:
     def __len__(self):
         return len(self.literals)
 
+    def next_not_false(self):
+        pass
 
+
+    """inline ClauseState Clause::next_not_false(bool is_left_watch, Lit other_watch, bool binary, int& loc) {  
+        if (verbose_now()) cout << "next_not_false" << endl;
+        
+        if (!binary)
+            for (vector<int>::iterator it = c.begin(); it != c.end(); ++it) {
+                LitState LitState = S.lit_state(*it);
+                if (LitState != LitState::L_UNSAT && *it != other_watch) { // found another watch_lit
+                    loc = distance(c.begin(), it);
+                    if (is_left_watch) lw = loc;    // if literal was the left one 
+                    else rw = loc;				
+                    return ClauseState::C_UNDEF;
+                }
+            }
+        switch (S.lit_state(other_watch)) {
+        case LitState::L_UNSAT: // conflict
+            if (verbose_now()) { print_real_lits(); cout << " is conflicting" << endl; }
+            return ClauseState::C_UNSAT;
+        case LitState::L_UNASSIGNED: return ClauseState::C_UNIT; // unit clause. Should assert the other watch_lit.	
+        case LitState::L_SAT: return ClauseState::C_SAT; // other literal is satisfied. 
+        default: Assert(0); return ClauseState::C_UNDEF; // just to supress warning. 
+        }
+    }"""
+
+    def reset(self):
+        pass
 
 """
 class Clause {

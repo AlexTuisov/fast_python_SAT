@@ -1,6 +1,4 @@
 from time import perf_counter
-
-import numpy as np
 from clause import Clause
 
 
