@@ -12,6 +12,7 @@ class UNSATException(Exception):
 
 class Solver:
     def __init__(self, timeout, input_formula, options):
+        self.verbose = True
         self.timeout = timeout
         self.cnf = {}
         self.literals = {}
@@ -53,6 +54,8 @@ class Solver:
 
     def BCP(self):
         return 0
+
+
 
     def backtrack(self):
         pass

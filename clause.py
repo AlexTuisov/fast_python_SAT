@@ -23,6 +23,10 @@ class Clause:
     def next_not_false(self):
         pass
 
+    def reset(self):
+        self.literals = ()
+
+
 
     """inline ClauseState Clause::next_not_false(bool is_left_watch, Lit other_watch, bool binary, int& loc) {  
         if (verbose_now()) cout << "next_not_false" << endl;
